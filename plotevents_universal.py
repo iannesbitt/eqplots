@@ -67,7 +67,6 @@ print(cat2.__str__(print_all=True))
 cat.write('evtlocal30days.xml', format='QUAKEML')
 cat2.write('evtmajor30days.xml', format='QUAKEML')
 
-inv = False
 
 if all(isinstance(sta, basestring) for sta in YOUR_STATIONS): # check iterable for stringiness of all items. Will raise TypeError if some_object is not iterable
     for sta in YOUR_STATIONS:
