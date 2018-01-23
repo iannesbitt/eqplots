@@ -107,7 +107,7 @@ fig, ax = plt.subplots(figsize=(12, 12), dpi=150)
 # lat_2 is second standard parallel.
 # lon_0, lat_0 is central point.
 m = Basemap(width=2500000, height=2500000,
-            resolution='i', projection='aea',
+            resolution='i', projection='tmerc',
             lat_1=YOUR_LATITUDE-10., lat_2=YOUR_LONGITUDE-10, lon_0=YOUR_LONGITUDE, lat_0=YOUR_LATITUDE, ax=ax)
 
 m.drawmapboundary(fill_color='skyblue')
