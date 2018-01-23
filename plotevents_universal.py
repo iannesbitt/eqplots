@@ -67,21 +67,30 @@ print(cat2.__str__(print_all=True))
 cat.write('evtlocal30days.xml', format='QUAKEML')
 cat2.write('evtmajor30days.xml', format='QUAKEML')
 
-
+inv = read_inventory()
+i = 0
+    
 if all(isinstance(sta, basestring) for sta in YOUR_STATIONS): # check iterable for stringiness of all items. Will raise TypeError if some_object is not iterable
     for sta in YOUR_STATIONS:
         try:
             sta = read_inventory('http://raspberryshake.net:8080/fdsnws/station/1/query?network=AM&station=%s&level=resp&format=sc3ml' % sta.upper())
             sta.write('sta%s.xml' % sta.upper(), 'STATIONXML')
-            inv += sta
+            if i < 1:
+                inv = sta
+            else:
+                inv += sta
         except:
             try:
                 sta = read_inventory('sta%s.xml' % sta.upper())
-                inv += sta
+                if i < 1:
+                    inv = sta
+                else:
+                    inv += sta
             except:
                 pass
+    i += 1
 else:
-    raise TypeError # or something along that line
+    raise TypeError
 
 if inv:
     print(inv)
