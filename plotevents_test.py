@@ -1,3 +1,4 @@
+from obspy import read_inventory, read_events
 from obspy.clients.fdsn.client import Client
 from obspy.core.event.catalog import Catalog
 from obspy.core import UTCDateTime
@@ -8,7 +9,18 @@ import matplotlib
 matplotlib.use('agg')
 import matplotlib.pyplot as plt
 
-from obspy import read_inventory, read_events
+
+###########################################################
+#                YOUR LAT AND LONG GO HERE                #
+###########################################################
+# you don't need to be exact, just general lat/lon to center your maps and gather local earthquake data
+# if you don't know them, you can go to google maps and click on an uninhabited area near your town, away from roads
+# negative latitude indicates southern hemisphere,
+# negative longitude indicates western hemisphere.
+YOUR_LATITUDE = 45.0
+YOUR_LONGITUDE = -70.0
+###########################################################
+###########################################################
 
 
 iris = Client("IRIS")
@@ -16,11 +28,6 @@ iris = Client("IRIS")
 t2 = UTCDateTime.now()
 #t2 = UTCDateTime(now.year, now.month, now.day)
 t1 = t2 - timedelta(days=30)
-
-# you don't need to be exact here
-YOUR_LATITUDE = 44.036114
-YOUR_LONGITUDE = -70.439856
-
 
 cat = Catalog()
 cat2 = Catalog()
