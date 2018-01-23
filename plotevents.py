@@ -89,7 +89,7 @@ m.fillcontinents(color='wheat', lake_color='skyblue')
 # draw parallels and meridians.
 m.drawparallels(np.arange(-80., 81., 10.))
 m.drawmeridians(np.arange(-180., 181., 10.))
-ax.set_title("30-day eastern North America M 0.1+ seismicity, colored by date - %s" % t2)
+ax.set_title("30-day local M 0.1+ seismicity, colored by date - %s" % t2)
 
 # we need to attach the basemap object to the figure, so that obspy knows about
 # it and reuses it
