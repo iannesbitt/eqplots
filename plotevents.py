@@ -78,7 +78,7 @@ fig, ax = plt.subplots(figsize=(12, 12), dpi=100)
 # lat_2 is second standard parallel.
 # lon_0, lat_0 is central point.
 m = Basemap(width=2500000, height=2500000,
-            resolution='i', projection='aea',
+            resolution='i', projection='tmerc',
             lat_1=35., lat_2=55, lon_0=-70, lat_0=45, ax=ax)
 #m.etopo()
 m.drawmapboundary(fill_color='skyblue')
