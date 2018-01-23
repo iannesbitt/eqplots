@@ -61,9 +61,9 @@ Cron is how I keep my website's images up-to-date. Here's a sample cron entry.
 SHELL=/bin/bash
 OBSPYTHON=/home/user/anaconda2/envs/obspy/bin
 PRDIR=/home/user/bin/eqplots    ## or wherever your eqplots installation happens to be
-*/10 * * * * cd $PRDIR/obspyevents; source activate obspy; $OBSPYTHON/python plotevents.py
+*/10 * * * * cd $PRDIR/obspyevents; source activate obspy; $OBSPYTHON/python plotevents_universal.py
 ```
 Since eqplots will create plots in the same directory as the source files, you may want to include a script that moves them to whatever directory you'd like your website's media files to reside in, in which case the last line of your cron entry would look like this
 ```
-*/10 * * * * cd $PRDIR/obspyevents; source activate obspy; $OBSPYTHON/python plotevents.py; mv *.png /var/www/website/media/plots
+*/10 * * * * cd $PRDIR/obspyevents; source activate obspy; $OBSPYTHON/python plotevents_universal.py; mv *.png /var/www/website/media/plots
 ```
