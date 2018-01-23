@@ -34,6 +34,8 @@ YOUR_LONGITUDE = -70.0
 from obspy import read_inventory, read_events
 from obspy.clients.fdsn.client import Client
 from obspy.core.event.catalog import Catalog
+from obspy.core.inventory.network import Network
+from obspy.core.inventory.inventory import Inventory
 from obspy.core import UTCDateTime
 from datetime import timedelta
 from mpl_toolkits.basemap import Basemap
@@ -67,9 +69,9 @@ print(cat2.__str__(print_all=True))
 cat.write('evtlocal30days.xml', format='QUAKEML')
 cat2.write('evtmajor30days.xml', format='QUAKEML')
 
-inv = read_inventory()
+inv = Inventory((Network('AM'),), 'AM')
 i = 0
-    
+
 if all(isinstance(sta, basestring) for sta in YOUR_STATIONS): # check iterable for stringiness of all items. Will raise TypeError if some_object is not iterable
     for sta in YOUR_STATIONS:
         try:
