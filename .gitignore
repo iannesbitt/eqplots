@@ -1,0 +1,5 @@
+*.pyc
+transfer
+*.png
+*.xml
+log.*
