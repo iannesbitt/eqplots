@@ -1,3 +1,5 @@
+mkplots
+*.csv
 *.pyc
 transfer
 *.png
